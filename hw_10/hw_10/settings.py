@@ -36,6 +36,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.meta.ua'
+EMAIL_PORT = 465
+EMAIL_STARTTLS = False
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = 'web16python@meta.ua'
+EMAIL_HOST_PASSWORD = '@123321@Python'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 
 # Application definition
 
@@ -124,6 +134,7 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)

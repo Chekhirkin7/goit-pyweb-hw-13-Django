@@ -23,12 +23,12 @@
             {% if user.is_authenticated %}
         <form action="{% url 'app_auth:logout' %}" method="post" style="display:inline;">
             {% csrf_token %}
-            <button type="submit" class="btn btn-link" style="margin-top: 24px; margin-left:250px;">
+            <button type="submit" class="btn btn-link" style="margin-left:50px;">
                 Logout
             </button>
         </form>
         <a href="{% url 'quotes:add-quote' %}">Add new quote</a>
-        <a href="{% url 'quotes:add-author' %}">Add new author</a>
+        <a href="{% url 'quotes:add-author' %}" style="margin-left:25px;">Add new author</a>
 
         {% else %}
         <a href="{% url 'app_auth:signup' %}">Register</a>
