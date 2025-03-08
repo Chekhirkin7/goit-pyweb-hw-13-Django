@@ -14,9 +14,13 @@ from pathlib import Path
 
 from django.conf.global_settings import DATABASES, LOGIN_REDIRECT_URL
 from mongoengine import connect
+import os
+from dotenv import load_dotenv
 
-MONGO_DB_NAME = "homework_08"
-MONGO_URI = "mongodb+srv://userweb16:567234@cluster0.p4i2j.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+load_dotenv()
+
+MONGO_DB_NAME = os.getenv("MONGO_DB_NAME")
+MONGO_URI = os.getenv("MONGO_URI")
 
 connect(MONGO_DB_NAME, host=MONGO_URI)
 
@@ -29,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-w07d91qzx8mme5^p5(s1f2p@5!7bs-&m2d2)u_+58$*53*okyt"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,8 +46,8 @@ EMAIL_PORT = 465
 EMAIL_STARTTLS = False
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
-EMAIL_HOST_USER = 'web16python@meta.ua'
-EMAIL_HOST_PASSWORD = '@123321@Python'
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
@@ -97,11 +101,11 @@ WSGI_APPLICATION = "hw_10.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "homework_10",
-        "USER": "postgres",
-        "PASSWORD": "567234",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "NAME": os.getenv("PG_NAME"),
+        "USER": os.getenv("PG_USER"),
+        "PASSWORD": os.getenv("PG_PASSWORD"),
+        "HOST": os.getenv("PG_HOST"),
+        "PORT": os.getenv("PG_PORT"),
     }
 }
 
